@@ -1,4 +1,4 @@
 def magic_calculation(a, b):
     power = a ** b
-    return (power)
+    return (power + 98)
 
