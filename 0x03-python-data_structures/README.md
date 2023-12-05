@@ -1,1 +1,1 @@
-Welcome to structure in python. We see lists, dics etc
+Welcome to structures in python. We see lists, dics etc
