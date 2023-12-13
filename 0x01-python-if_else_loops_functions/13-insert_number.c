@@ -40,14 +40,14 @@ listint_t *insert_node(listint_t **head, int number)
 	{
 		prev_nod->next = new_nod;
 		new_nod->next = curr_nod;
+
+		if (curr_nod == *head)
+			*head = new_nod;
 	}
 	else
 	{
 		curr_nod->next = new_nod;
 	}
-
-	if (curr_nod == *head)
-		*head = new_nod;
 
 	return (new_nod);
 }
