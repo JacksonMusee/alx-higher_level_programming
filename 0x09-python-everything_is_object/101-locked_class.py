@@ -4,6 +4,8 @@ Here we want to see who is the boss.
 A class will control what happens inside.
 Let's see.
 """
+
+
 class LockedClass:
     """
     This class limits attibute name.
