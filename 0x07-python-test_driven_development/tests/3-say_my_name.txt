@@ -1,0 +1,28 @@
+It's time to test 3-say_my_name.py
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name("McGee", "Mzee")
+My name is McGee Mzee
+
+>>> say_my_name("Jack",)
+My name is Jack 
+
+>>> say_my_name( ,"Son")
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+>>> say_my_name(3, "Son")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name("Jack", 3)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string

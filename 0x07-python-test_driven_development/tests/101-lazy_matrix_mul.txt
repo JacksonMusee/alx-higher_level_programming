@@ -1,0 +1,92 @@
+Test Docs for lazy_matrix_mul written 101-lazy_matrix_mul.py
+
+#import the function
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+#m_a is not a list
+>>> lazy_matrix_mul(1, [[1,2],[3,4]])
+array([[1, 2],
+       [3, 4]])
+
+#m_b is not a list
+>>> lazy_matrix_mul([[1,2],[3,4]], 1)
+array([[1, 2],
+       [3, 4]])
+
+#m_a is not a list of lists
+>>> lazy_matrix_mul([1,2,3,4], [[1,2],[3,4]])
+Traceback (most recent call last):
+...
+ValueError: shapes (4,) and (2,2) not aligned: 4 (dim 0) != 2 (dim 0)
+
+#m_b is not a list of lists
+>>> lazy_matrix_mul([[1,2],[3,4]], [1,2,3,4])
+Traceback (most recent call last):
+...
+ValueError: shapes (2,2) and (4,) not aligned: 2 (dim 1) != 4 (dim 0)
+
+#m_a is empty list as in []
+>>> lazy_matrix_mul([], [[1,2],[3,4]])
+Traceback (most recent call last):
+...
+ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
+
+#m_a is empty list asin [[]]
+>>> lazy_matrix_mul([[]], [[1,2],[3,4]])
+Traceback (most recent call last):
+...
+ValueError: shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
+
+#m_b is empty list as in []
+>>> lazy_matrix_mul([[1,2],[3,4]], [])
+Traceback (most recent call last):
+...
+ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
+
+#m_b is empty list as in [[]]
+>>> lazy_matrix_mul([[1,2],[3,4]], [[]])
+Traceback (most recent call last):
+...
+ValueError: shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
+
+#one element in m_a[i] is not an int or float
+>>> lazy_matrix_mul([[1,"me"],[3,4]], [[1,2],[3,4]])
+Traceback (most recent call last):
+...
+ValueError: data type must provide an itemsize
+
+#one element in m_b[i] is not an int or float
+>>> lazy_matrix_mul([[1,2],[3,4]], [[1,2],[3,"me"]])
+Traceback (most recent call last):
+...
+ValueError: data type must provide an itemsize
+
+#if all rows of m_a are not the same size
+>>> lazy_matrix_mul([[1,2],[3,4,7]], [[1,2],[3,4]])
+Traceback (most recent call last):
+...
+ValueError: setting an array element with a sequence.
+
+#if all rows of m_b are not the same size
+>>> lazy_matrix_mul([[1,2],[3,4]], [[1,2],[3,4,7]])
+Traceback (most recent call last):
+...
+ValueError: setting an array element with a sequence.
+
+#if columns of m_a do not equal rows of m_b
+>>> lazy_matrix_mul([[1,2,3],[3,4,1]], [[1,2],[3,4]])
+Traceback (most recent call last):
+...
+ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
+
+#missing one argument
+>>> lazy_matrix_mul([[1,2],[3,4]])
+Traceback (most recent call last):
+...
+TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+#missing all two arguments
+>>> lazy_matrix_mul()
+Traceback (most recent call last):
+...
+TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
