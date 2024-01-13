@@ -18,4 +18,4 @@ def from_json_string(my_str):
     This functon implements the requirements outlined this module's
     documentation above.
     """
-    return(json.loads(my_str))
+    return (json.loads(my_str))
