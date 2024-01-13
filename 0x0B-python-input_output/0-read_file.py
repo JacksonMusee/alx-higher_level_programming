@@ -9,6 +9,7 @@ You don’t need to manage file permission or file doesn't exist exceptions.
 You are not allowed to import any module
 """
 
+
 def read_file(filename=""):
     """
     This function does exectly as required in the module
@@ -16,4 +17,5 @@ def read_file(filename=""):
     That must be clear
     """
     with open(filename, "r", encoding="utf-8") as my_file:
-        print(read(my_file))
+        for line in my_file:
+            print(line, end="")
