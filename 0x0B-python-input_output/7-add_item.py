@@ -18,19 +18,26 @@ save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
-def add_items():
-    """
-    Implementation of the requirements described above in modul's doc
-    """
-    my_list = getattr(add_items, "items", [])
-    with open("add_item.json", "w+") as my_file:
-        content = my_file.read()
-        if content:
-            my_list = load_from_json_file("add_item.json")
+class myClass:
+
+    def __init__(self):
+        self.items = []
+
+
+    def add_items(self):
+        """
+        Implementation of the requirements described above in modul's doc
+        """
+        my_list = self.items
+        with open("add_item.json", "w+") as my_file:
+            content = my_file.read()
+            if content:
+                my_list = load_from_json_file("add_item.json")
 
         my_list += sys.argv[1:]
-        add_items.items = my_list
+        self.items = my_list
         save_to_json_file(my_list, "add_item.json")
 
 
-add_items()
+instance = myClass()
+instance.add_items()
