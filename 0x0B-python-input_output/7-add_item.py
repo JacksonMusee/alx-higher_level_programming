@@ -24,7 +24,7 @@ def add_items():
     """
     my_list = []
 
-    with open("add_item.json", "r") as my_file:
+    with open("add_item.json", "w+") as my_file:
         content = my_file.read()
 
     if content:
