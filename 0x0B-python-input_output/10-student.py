@@ -40,10 +40,13 @@ class Student:
         data = self.__dict__.items()
         rData = {}
 
-        if attrs:
-            for key, value in data:
-                if key in attrs:
-                    rData[key] = value
+        if attrs is not None:
+            if len(attrs) > 0:
+                for key, value in data:
+                    if key in attrs:
+                        rData[key] = value
+            else:
+                rData = {}
         else:
             for key, value in data:
                 rData[key] = value
