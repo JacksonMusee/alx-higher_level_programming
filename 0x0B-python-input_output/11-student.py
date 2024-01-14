@@ -61,4 +61,5 @@ class Student:
         """
         Replaces all attributes of the Student instance
         """
-        self.__dict__ = json
+        if json:
+            self.__dict__ = json
