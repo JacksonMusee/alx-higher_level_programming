@@ -24,10 +24,11 @@ def add_items():
     """
     my_list = []
 
-    with open("add_item.json", "r+") as my_file:
+    with open("add_item.json", "r") as my_file:
         content = my_file.read()
-        if content:
-            my_list = load_from_json_file("add_item.json")
+
+    if content:
+        my_list = load_from_json_file("add_item.json")
 
     my_list += sys.argv[1:]
     save_to_json_file(my_list, "add_item.json")
