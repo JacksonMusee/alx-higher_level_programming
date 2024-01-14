@@ -24,15 +24,16 @@ def add_items():
     """
     my_list = []
 
-    with open("add_item.json", "r") as my_file:
-        content = my_file.read()
+    try:
+        with open("add_item.json", "r") as my_file:
+            content = my_file.read()
 
         if content:
             my_list = load_from_json_file("add_item.json")
 
-        else:
-            with open("add_item.json", "w") as my_file:
-                pass
+    except FileNotFoundError:
+        with open("add_item.json", "w") as my_file:
+            pass
 
     my_list += sys.argv[1:]
     save_to_json_file(my_list, "add_item.json")
