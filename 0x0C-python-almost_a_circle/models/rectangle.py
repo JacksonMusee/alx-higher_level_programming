@@ -38,10 +38,13 @@ class Rectangle(base.Base):
         """
         A setter for prvate attribute__width
         """
-        if width >= 0 and isinstance(width, int):
-            self.__width = width
-        else:
-            raise Exception("Width must be a positive integer")
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+
+        if width <= 0:
+            raise ValueError("width must be > 0")
+
+        self.__width = width
 
     def get_width(self):
         """
@@ -53,10 +56,13 @@ class Rectangle(base.Base):
         """
         Setter for private attribute __height
         """
-        if height >= 0 and isinstance(height, int):
-            self.__height = height
-        else:
-            raise Exception("Height must be a positive integer")
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+
+        if height <= 0:
+            raise ValueError("height must be > 0")
+
+        self.__height = height
 
     def get_height(self):
         """
@@ -68,10 +74,13 @@ class Rectangle(base.Base):
         """
         Setter for private attribute __x
         """
-        if x >= 0 and isinstance(x, int):
-            self.__x = x
-        else:
-            raise Exception("X must be a positive integer")
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
+
+        if x < 0:
+            raise ValueError("x must be >= 0")
+
+        self.__x = x
 
     def get_x(self):
         """
@@ -83,10 +92,13 @@ class Rectangle(base.Base):
         """
         Setter fo private attribute __y
         """
-        if y >= 0 and isinstance(y, int):
-            self.__y = y
-        else:
-            raise Exception("Y must be a positive integer")
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
+
+        if y < 0:
+            raise ValueError("x must be >= 0")
+
+        self.__y = y
 
     def get_y(self):
         """
