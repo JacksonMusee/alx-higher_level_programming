@@ -110,6 +110,6 @@ class Rectangle(base.Base):
             raise TypeError("y must be an integer")
 
         if y < 0:
-            raise ValueError("x must be >= 0")
+            raise ValueError("y must be >= 0")
 
         self.__y = y
