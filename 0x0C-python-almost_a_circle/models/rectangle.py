@@ -29,12 +29,20 @@ class Rectangle(base.Base):
         Initialize an object of class Rectangle
         """
         super().__init__(id)
-        self.set_width(width)
-        self.set_height(height)
-        self.set_x(x)
-        self.set_y(y)
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
-    def set_width(self, width):
+    @property
+    def width(self):
+        """
+        Returns the width of this instance
+        """
+        return self.__width
+
+    @width.setter
+    def width(self, width):
         """
         A setter for prvate attribute__width
         """
@@ -46,13 +54,15 @@ class Rectangle(base.Base):
 
         self.__width = width
 
-    def get_width(self):
+    @property
+    def height(self):
         """
-        Returns the width of this instance
+        Getter for __height
         """
-        return self.__width
+        return self.__height
 
-    def set_height(self, height):
+    @height.setter
+    def height(self, height):
         """
         Setter for private attribute __height
         """
@@ -64,13 +74,15 @@ class Rectangle(base.Base):
 
         self.__height = height
 
-    def get_height(self):
+    @property
+    def x(self):
         """
-        Getter for __height
+        Getter for __x
         """
-        return self.__height
+        return self.__x
 
-    def set_x(self, x):
+    @x.setter
+    def x(self, x):
         """
         Setter for private attribute __x
         """
@@ -82,13 +94,15 @@ class Rectangle(base.Base):
 
         self.__x = x
 
-    def get_x(self):
+    @property
+    def y(self):
         """
-        Getter for __x
+        Getter for __y
         """
-        return self.__x
+        return self.__y
 
-    def set_y(self, y):
+    @y.setter
+    def y(self, y):
         """
         Setter fo private attribute __y
         """
@@ -99,9 +113,3 @@ class Rectangle(base.Base):
             raise ValueError("x must be >= 0")
 
         self.__y = y
-
-    def get_y(self):
-        """
-        Getter for __y
-        """
-        return self.__y
