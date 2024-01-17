@@ -154,4 +154,4 @@ class Rectangle(base.Base):
                 self.y = args[4]
         else:
             for attribute in kwargs:
-                self.__dict__[attribute ]= kwargs[attribute]
+                setattr(self, attribute, kwargs[attribute])
