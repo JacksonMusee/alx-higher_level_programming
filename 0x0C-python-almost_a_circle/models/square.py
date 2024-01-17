@@ -26,4 +26,5 @@ class Square(rectangle.Rectangle):
         Return a strng represention
         """
 
-        return f"[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y} - {self.width}"
+        return (f"[{self.__class__.__name__}] ({self.id}) "
+                f"{self.x}/{self.y} - {self.width}")
