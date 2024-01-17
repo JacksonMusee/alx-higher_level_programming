@@ -124,8 +124,9 @@ class Rectangle(base.Base):
         """
         Prints in stdout the Rectangle instance with the character #
         """
+        print("\n" * self.y, end="")
         for line in range(self.height):
-            print("#" * self.width)
+            print(f'{" " * self.x}{"#" * self.width}')
 
     def __str__(self):
         """
