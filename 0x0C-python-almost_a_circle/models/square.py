@@ -19,7 +19,7 @@ class Square(rectangle.Rectangle):
         """
         Initialization of an abject
         """
-        super().__init__(size, size, x=x, y=y, id=None)
+        super().__init__(size, size, x=x, y=y, id=id)
 
     def __str__(self):
         """
