@@ -160,4 +160,10 @@ class Rectangle(base.Base):
         """
         Returns the dictionary representation of a Rectangle
         """
-        return self.__dict__
+        dictionary = vars(self)
+        newdic = {}
+
+        for key, value in dictionary.items():
+            newdic[key.replace("_Rectangle__", "")] = value
+
+        return newdic
