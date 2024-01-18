@@ -155,3 +155,9 @@ class Rectangle(base.Base):
         else:
             for attribute in kwargs:
                 setattr(self, attribute, kwargs[attribute])
+
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of a Rectangle
+        """
+        return self.__dict__
