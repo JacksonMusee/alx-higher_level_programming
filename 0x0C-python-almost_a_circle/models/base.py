@@ -20,6 +20,7 @@ instance attribute id
 
 import json
 
+
 class Base:
     """
     Implementation as required above
@@ -42,11 +43,11 @@ class Base:
         """
         returns the JSON string representation of a list of dictionaries
         """
-        dic = "[]"
+        data = "[]"
         if list_dictionaries:
-            dic = json.dumps(list_dictionaries)
+            data = json.dumps(list_dictionaries)
 
-        return dic
+        return data
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -57,7 +58,6 @@ class Base:
         for item in list_objs:
             strings.append(item.to_dictionary())
 
-        data = json.dumps(strings)
+        data = cls.to_json_string(strings)
         with open(f"{cls.__name__}.json", "w") as jfile:
             jfile.write(data)
-            
