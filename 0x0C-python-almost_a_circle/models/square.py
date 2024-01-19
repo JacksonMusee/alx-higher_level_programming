@@ -60,3 +60,15 @@ class Square(rectangle.Rectangle):
         else:
             for arg in kwargs:
                 setattr(self, arg, kwargs[arg])
+
+    def to_dictionary(self):
+        """
+        """
+        newdic = {}
+        for key, value in vars(self).items():
+            if key in ("_Rectangle__width", "_Rectangle__height"):
+                newdic["size"] = value
+            else:
+                newdic[key.replace("_Rectangle__", "")] = value
+
+        return newdic
