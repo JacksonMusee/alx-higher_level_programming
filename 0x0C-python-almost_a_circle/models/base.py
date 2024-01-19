@@ -55,7 +55,7 @@ class Base:
         Writes the JSON string representation of list_objs to a file
         """
         strings = []
-        if list_objs == None:
+        if list_objss!= None:
             for item in list_objs:
                 strings.append(item.to_dictionary())
 
