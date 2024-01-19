@@ -20,7 +20,6 @@ instance attribute id
 
 import json
 
-
 class Base:
     """
     Implementation as required above
@@ -48,3 +47,17 @@ class Base:
             dic = json.dumps(list_dictionaries)
 
         return dic
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        Writes the JSON string representation of list_objs to a file
+        """
+        strings = []
+        for item in list_objs:
+            strings.append(item.to_dictionary())
+
+        data = json.dumps(strings)
+        with open(f"{cls.__name__}.json", "w") as jfile:
+            jfile.write(data)
+            
