@@ -55,8 +55,9 @@ class Base:
         Writes the JSON string representation of list_objs to a file
         """
         strings = []
-        for item in list_objs:
-            strings.append(item.to_dictionary())
+        if list_objs == None:
+            for item in list_objs:
+                strings.append(item.to_dictionary())
 
         data = cls.to_json_string(strings)
         with open(f"{cls.__name__}.json", "w") as jfile:
