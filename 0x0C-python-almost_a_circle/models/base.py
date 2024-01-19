@@ -62,3 +62,14 @@ class Base:
         data = cls.to_json_string(strings)
         with open(f"{cls.__name__}.json", "w") as jfile:
             jfile.write(data)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Returns the list of the JSON string representation json_string
+        """
+        jlist = []
+        if json_string is not None:
+            jlist = json.loads(json_string)
+
+        return jlist
