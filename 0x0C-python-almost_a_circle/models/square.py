@@ -63,6 +63,7 @@ class Square(rectangle.Rectangle):
 
     def to_dictionary(self):
         """
+        Returns the dictionary representation of a Square
         """
         newdic = {}
         for key, value in vars(self).items():
