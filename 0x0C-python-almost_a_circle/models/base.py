@@ -42,4 +42,8 @@ class Base:
         """
         returns the JSON string representation of a list of dictionaries
         """
-        return json.dumps(list_dictionaries)
+        dic = "[]"
+        if list_dictionaries:
+            dic = json.dumps(list_dictionaries)
+
+        return dic
