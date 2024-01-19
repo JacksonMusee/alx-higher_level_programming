@@ -20,6 +20,7 @@ instance attribute id
 
 import json
 
+
 class Base:
     """
     Implementation as required above
