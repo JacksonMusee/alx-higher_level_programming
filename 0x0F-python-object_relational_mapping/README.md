@@ -1,0 +1,1 @@
+Connecting python to a real database. Directly and using ORM (Object Relational Mapping)
