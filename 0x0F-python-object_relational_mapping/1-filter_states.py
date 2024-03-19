@@ -17,7 +17,8 @@ if __name__ == "__main__":
                               user=USER, passwd=PASS, db=DB)
     cur = db_conn.cursor()
 
-    cur.execute("SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC")
+    cur.execute("SELECT * FROM states WHERE BINARY name LIKE 'N%'
+                ORDER BY id ASC")
     states = cur.fetchall()
     for state in states:
         print(state)
