@@ -25,7 +25,7 @@ if __name__ == "__main__":
     my_session.commit()
 
     nstate = my_session.query(State).filter(State.name == 'Louisiana').first()
-    if state:
+    if nstate:
         print(nstate.id)
     else:
         print('Not found')
