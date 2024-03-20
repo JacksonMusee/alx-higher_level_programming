@@ -24,9 +24,9 @@ if __name__ == "__main__":
     my_session.add(new_state)
     my_session.commit()
 
-    nw_state = my_session.query(State).filter(State.name == 'Louisiana').first()
-    if nw_state:
-        print(nw_state.id)
+    nstate = my_session.query(State).filter(State.name == 'Louisiana').first()
+    if state:
+        print(nstate.id)
     else:
         print('Not found')
 
