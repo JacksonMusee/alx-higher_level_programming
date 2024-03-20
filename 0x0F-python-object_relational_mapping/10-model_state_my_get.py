@@ -20,10 +20,9 @@ if __name__ == "__main__":
     my_session = Session()
 
     search_name = sys.argv[4]
-    the_state = my_session.query(State).filter(State.name == search_name).all()
+    the_state = my_session.query(State).filter(State.name == search_name).first()
     if the_state:
-        for state in the_state:
-            print(state.id)
+        print(the_state.id)
     else:
         print('Not found')
 
