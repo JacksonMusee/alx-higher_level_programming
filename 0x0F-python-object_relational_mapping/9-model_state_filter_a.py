@@ -24,5 +24,3 @@ if __name__ == "__main__":
     if a_states:
         for state in a_states:
             print(f'{state.id}: {state.name}')
-    else:
-        print('Nothing')
