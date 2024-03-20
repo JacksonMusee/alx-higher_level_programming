@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-Adds a new state and prints its id
+Adds a new state and prints its id.
+Must be fun
 """
 
 import sys
@@ -23,10 +24,9 @@ if __name__ == "__main__":
     my_session.add(new_state)
     my_session.commit()
 
-    the_state = my_session.query(State)/
-    .filter(State.name == 'Louisiana').first()
-    if the_state:
-        print(the_state.id)
+    nw_state = my_session.query(State).filter(State.name == 'Louisiana').first()
+    if nw_state:
+        print(nw_state.id)
     else:
         print('Not found')
 
