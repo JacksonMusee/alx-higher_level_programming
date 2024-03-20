@@ -24,5 +24,7 @@ if __name__ == "__main__":
     if the_state:
         for state in the_state:
             print(state.id)
+    else:
+        print('Not found')
 
     my_session.close()
