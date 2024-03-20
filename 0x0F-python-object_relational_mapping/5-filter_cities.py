@@ -24,12 +24,12 @@ if __name__ == "__main__":
                  "WHERE states.name = %s "
                  "ORDER BY cities.id ASC")
     cur.execute(my_querry, (the_state,))
-
     cities = cur.fetchall()
-    for city in cities[0:-1]:
-        print(f'{city[0]}, ', end="")
 
-    for city in cities[-1:]:
-        print(city[0])
+    lst = []
+    for city in cities:
+        lst.append(city[0])
+    output = ', '.join(map(str, lst))
+    print(output)
 
     db_conn.close()
