@@ -18,7 +18,7 @@ if __name__ == "__main__":
                               passwd=PASS, db=MY_DB, charset="utf8")
     cur = db_conn.cursor()
 
-    my_querry = ("SELECT cities.name "
+    my_querry = ("SELECT cities.id, cities.name, states.name "
                  "FROM cities INNER JOIN states "
                  "ON cities.state_id = states.id "
                  "WHERE states.name = %s "
@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     lst = []
     for city in cities:
-        lst.append(city[0])
+        lst.append(city[1])
     output = ', '.join(map(str, lst))
     print(output)
 
