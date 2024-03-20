@@ -18,9 +18,8 @@ if __name__ == "__main__":
                               passwd=PASS, db=MY_DB, charset="utf8")
     cur = db_conn.cursor()
 
-    cur.execute("SELECT * FROM states "
-                "WHERE BINARY name = '{}' "
-                "ORDER BY id ASC".format(SEARCH_ARG,))
+    my_querry = "SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC"
+    cur.execute(my_querry, (SEARCH_ARG,))
 
     states = cur.fetchall()
     for state in states:
