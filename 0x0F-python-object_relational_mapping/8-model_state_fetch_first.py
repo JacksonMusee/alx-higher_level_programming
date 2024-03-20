@@ -19,7 +19,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     my_session = Session()
 
-    first_state = my_session.query(State).filter_by(id=11).first()
+    first_state = my_session.query(State).order_by(State.id).first()
     if first_state:
         print(f'{first_state.id}: {first_state.name}')
     else:
