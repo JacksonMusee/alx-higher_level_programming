@@ -9,6 +9,7 @@ from sqlalchemy import Column, String, Integer
 
 Base = declarative_base()
 
+
 class State(Base):
     """
     This class maps to the states tables in the database

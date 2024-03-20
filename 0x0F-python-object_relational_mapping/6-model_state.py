@@ -1,4 +1,4 @@
-#!~/alxvenv/bin/python3
+#!/root/alxvenv/bin/python3
 """Start link class to table in database 
 """
 import sys
