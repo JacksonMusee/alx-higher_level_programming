@@ -4,7 +4,7 @@
 Lists all City objects from the database hbtn_0e_101_usa
 """
 import sys
-from sqlalchemy import create_engine, asc
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from relationship_state import Base, State
 from relationship_city import City
@@ -20,16 +20,12 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     my_session = Session()
-    """
+
     states_with_cities = my_session.query(State).order_by(State.id)
-    """
-    states_with_cities = my_session.query(State).order_by(asc(State.id))
 
     for state in states_with_cities:
         print(f'{state.id}: {state.name}')
-
-        cities = sorted(state.cities, key=lambda city: city.id)
-        for city in cities:
+        for city in state.cities:
             print(f'    {city.id}: {city.name}')
 
     my_session.close()
