@@ -20,7 +20,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     my_session = Session()
-
+    """
     cities_with_state = my_session.query(City).order_by(City.id)
     
     state_list = []
@@ -35,5 +35,13 @@ if __name__ == "__main__":
         for city in cities_with_state:
             if city.state.id == item[0]:
                 print(f'    {city.id}: {city.name}')
+    """
+
+    states_with_cities = my_session.query(State).order_by(State.id)
+
+    for state in states_with_cities:
+        print(f'{state.id}: {state.name}')
+        for city in state.cities:
+            print(f'    {city.id}: {city.name}')
 
     my_session.close()
