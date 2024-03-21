@@ -23,7 +23,7 @@ if __name__ == "__main__":
     """
     states_with_cities = my_session.query(State).order_by(State.id)
     """
-    states_with_cities = my_session.query(State).join(State.cities).order_by(asc(State.id), asc(City.id)).all()
+    states_with_cities = my_session.query(State).order_by(asc(State.id))
 
     for state in states_with_cities:
         print(f'{state.id}: {state.name}')
