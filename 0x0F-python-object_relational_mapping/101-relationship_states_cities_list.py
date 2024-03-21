@@ -20,7 +20,11 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     my_session = Session()
+
+    #Method 1 - And it's very long. But it works. To use it, comment method 2
     """
+    #Method one - And it's very long. But it works
+
     cities_with_state = my_session.query(City).order_by(City.id)
     
     state_list = []
@@ -37,6 +41,7 @@ if __name__ == "__main__":
                 print(f'    {city.id}: {city.name}')
     """
 
+    #method 2 - is pretty straight forward
     states_with_cities = my_session.query(State).order_by(State.id)
 
     for state in states_with_cities:
