@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Changes the state's name to 'New Mexico' at id=2.
+Deletes all states whose name contai 'a'
 Must be fun
 """
 
@@ -20,9 +20,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     my_session = Session()
 
-    new_name = 'New Mexico'
-    old_state = my_session.query(State).filter(State.id == 2).first()
-    old_state.name = new_name
+    a_states = my_session.query(State).filter(State.name.like('%a%')).all()
+    for state in a_states:
+        my_session.delete(state)
 
     my_session.commit()
 
