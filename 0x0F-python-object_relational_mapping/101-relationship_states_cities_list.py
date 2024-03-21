@@ -4,8 +4,8 @@
 Lists all City objects from the database hbtn_0e_101_usa
 """
 import sys
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, joinedload
+from sqlalchemy import create_engine, asc
+from sqlalchemy.orm import sessionmaker
 from relationship_state import Base, State
 from relationship_city import City
 
@@ -20,8 +20,10 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     my_session = Session()
-
-    states_with_cities = my_session.query(State).options(joinedload(State.cities)).order_by(State.id)
+    """
+    states_with_cities = my_session.query(State).order_by(State.id)
+    """
+    states_with_cities = my_session.query(State).join(State.cities).order_by(asc(State.id), asc(City.id)).all()
 
     for state in states_with_cities:
         print(f'{state.id}: {state.name}')
